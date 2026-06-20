@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cleanearth SustainLab — Environmental & Sustainability Advisory</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:#f0f2f5;}
+:root{
+--navy:#2B4A6F;
+--navy-dark:#1a2f46;
+--navy-mid:#3a5f8a;
+--green:#4A8C3F;
+--green-light:#6aad5e;
+--green-pale:#e8f5e5;
+--cream:#f8f9fa;
+--text:#1a2f46;
+--muted:#5a6a7a;
+--divider:#d0dde8;
+}
+.brochure{font-family:'Montserrat',sans-serif;max-width:900px;margin:0 auto;background:#fff;box-shadow:0 4px 32px rgba(0,0,0,0.10);}
+
+/* PAGE TABS */
+.page-tabs{display:flex;border-bottom:2px solid var(--divider);background:#fff;}
+.ptab{flex:1;padding:12px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;text-align:center;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s;}
+.ptab.active{color:var(--navy);border-bottom-color:var(--green);}
+.page-content{display:none;}
+.page-content.visible{display:block;}
+
+/* HERO */
+.p1-hero{background:var(--navy-dark);color:#fff;display:flex;min-height:340px;position:relative;}
+.p1-hero-left{flex:1.2;padding:52px 44px 44px;display:flex;flex-direction:column;justify-content:space-between;}
+.p1-hero-right{flex:0.8;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a2f46 0%,#2B4A6F 50%,#3a5f8a 100%);display:flex;align-items:center;justify-content:center;}
+.p1-hero-right i{font-size:80px;color:rgba(255,255,255,0.08);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--navy-dark) 0%,transparent 60%);}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--green-light);text-transform:uppercase;margin-bottom:18px;}
+.p1-hero h1{font-size:32px;font-weight:700;line-height:1.15;color:#fff;margin-bottom:12px;}
+.p1-hero h1 span{color:var(--green-light);}
+.hero-sub{font-size:12px;font-weight:400;color:rgba(255,255,255,0.7);line-height:1.7;max-width:380px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(74,140,63,0.2);border:1px solid var(--green-light);border-radius:20px;padding:6px 16px;margin-top:24px;}
+.hero-badge span{font-size:10px;font-weight:600;color:var(--green-light);letter-spacing:1px;text-transform:uppercase;}
+.logo-area{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.logo-name{font-size:14px;font-weight:700;color:rgba(255,255,255,0.9);letter-spacing:0.5px;}
+.logo-sub{font-size:9px;color:var(--green-light);letter-spacing:2px;text-transform:uppercase;font-weight:600;}
+
+/* STATS BAR */
+.stats-bar{background:var(--navy);display:flex;border-bottom:3px solid var(--green);}
+.stat{flex:1;padding:20px 24px;border-right:1px solid rgba(255,255,255,0.1);text-align:center;}
+.stat:last-child{border-right:none;}
+.stat-num{font-size:22px;font-weight:700;color:var(--green-light);}
+.stat-label{font-size:9px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px;}
+
+/* INTRO */
+.intro-strip{background:var(--cream);padding:28px 44px;border-bottom:1px solid var(--divider);}
+.intro-strip p{font-size:12.5px;color:var(--muted);line-height:1.8;max-width:760px;}
+.intro-strip strong{color:var(--navy);}
+
+/* SERVICES */
+.services-section{padding:36px 44px;background:#fff;}
+.section-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px;}
+.section-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:24px;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+.service-card{border:1px solid var(--divider);border-radius:8px;padding:20px 18px;cursor:pointer;background:#fff;transition:border-color 0.2s,box-shadow 0.2s;}
+.service-card:hover{border-color:var(--green);box-shadow:0 4px 16px rgba(74,140,63,0.1);}
+.service-card.active{border-color:var(--navy);background:var(--navy);color:#fff;}
+.service-card.active .sc-title{color:#fff;}
+.service-card.active .sc-desc{color:rgba(255,255,255,0.75);}
+.service-card.active .sc-icon{background:rgba(255,255,255,0.12);color:var(--green-light);}
+.sc-icon{width:36px;height:36px;border-radius:6px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:16px;color:var(--green);}
+.sc-title{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.sc-desc{font-size:10.5px;color:var(--muted);line-height:1.65;}
+.detail-box{background:var(--green-pale);border-left:3px solid var(--green);padding:16px 20px;margin-top:14px;display:none;}
+.detail-box.visible{display:block;}
+.detail-box p{font-size:11px;color:var(--text);line-height:1.7;}
+.detail-box ul{margin-top:8px;padding-left:16px;}
+.detail-box ul li{font-size:11px;color:var(--muted);line-height:1.8;}
+
+/* PAGE BREAK */
+.page-break{height:4px;background:linear-gradient(to right,var(--navy),var(--green));}
+
+/* PAGE 2 */
+.p2-header{background:var(--cream);padding:32px 44px 24px;border-bottom:1px solid var(--divider);}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--divider);border-radius:8px;overflow:hidden;margin-top:20px;}
+.delivery-item{padding:18px 20px;border-right:1px solid var(--divider);border-bottom:1px solid var(--divider);}
+.delivery-item:nth-child(2n){border-right:none;}
+.delivery-item:nth-last-child(-n+2){border-bottom:none;}
+.di-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:6px;}
+.di-title{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.di-desc{font-size:10.5px;color:var(--muted);line-height:1.6;}
+
+/* TARGET */
+.target-section{padding:32px 44px;background:#fff;}
+.target-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.pill{background:var(--cream);border:1px solid var(--divider);border-radius:20px;padding:6px 14px;font-size:10.5px;font-weight:600;color:var(--navy);}
+.pill.green{background:var(--green-pale);border-color:var(--green);color:var(--green);}
+
+/* VISION */
+.vision-band{background:var(--navy-dark);color:#fff;padding:28px 44px;display:flex;align-items:center;gap:32px;}
+.vision-text h3{font-size:14px;font-weight:700;color:var(--green-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.vision-text p{font-size:11.5px;color:rgba(255,255,255,0.8);line-height:1.7;}
+
+/* CTA */
+.cta-section{padding:36px 44px;background:var(--green-pale);}
+.cta-section h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.cta-section p.sub{font-size:12px;color:var(--muted);margin-bottom:24px;line-height:1.7;}
+.btn-primary{display:inline-block;background:var(--navy);color:#fff;border:none;padding:13px 28px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:0.5px;cursor:pointer;text-transform:uppercase;text-decoration:none;}
+.btn-primary:hover{background:var(--navy-mid);}
+
+/* FORM EMBED */
+.form-embed-wrap{margin-top:24px;border-radius:8px;overflow:hidden;border:1px solid var(--divider);background:#fff;}
+.form-embed-wrap iframe{display:block;width:100%;border:none;}
+
+/* FOOTER */
+.brochure-footer{background:var(--navy-dark);display:flex;align-items:center;justify-content:space-between;padding:16px 44px;}
+.footer-brand{font-size:11px;font-weight:700;color:#fff;letter-spacing:1px;}
+.footer-brand span{color:var(--green-light);}
+.footer-meta{font-size:9.5px;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase;}
+
+/* PARTNER CARDS */
+.partner-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:20px;}
+.partner-card{background:var(--cream);border-radius:8px;padding:16px;border:1px solid var(--divider);}
+.partner-card i{font-size:20px;color:var(--green);margin-bottom:8px;display:block;}
+.partner-card-title{font-size:11px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.partner-card-desc{font-size:10px;color:var(--muted);line-height:1.6;}
+</style>
+</head>
+<body>
+
+<div class="brochure">
+
+<div class="page-tabs">
+  <div class="ptab active" onclick="showPage(0)">Page 1 — Overview & Services</div>
+  <div class="ptab" onclick="showPage(1)">Page 2 — Delivery, Vision & Assessment Request</div>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page-content visible" id="page-0">
+
+<div class="p1-hero">
+  <div class="p1-hero-left">
+    <div>
+      <div class="logo-area">
+        <div style="width:40px;height:40px;background:rgba(255,255,255,0.08);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+          <i class="ti ti-leaf" style="font-size:22px;color:#6aad5e;" aria-hidden="true"></i>
+        </div>
+        <div>
+          <div class="logo-name">Cleanearth</div>
+          <div class="logo-sub">SustainLab</div>
+        </div>
+      </div>
+      <div class="eyebrow">Environmental &amp; Sustainability Advisory</div>
+      <h1>Built for<br><span>Medium Enterprises.</span><br>Built for Impact.</h1>
+      <p class="hero-sub">Practical, affordable, implementation-focused sustainability support — helping Ghana's growth businesses improve environmental performance and access green financing.</p>
+    </div>
+    <div class="hero-badge">
+      <i class="ti ti-shield-check" style="font-size:14px;color:#6aad5e;" aria-hidden="true"></i>
+      <span>IFC-aligned · GRI · ESG-ready</span>
+    </div>
+  </div>
+  <div class="p1-hero-right">
+    <i class="ti ti-building-factory-2" aria-hidden="true"></i>
+    <div class="hero-overlay"></div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">Service Areas</div></div>
+  <div class="stat"><div class="stat-num">SMEs</div><div class="stat-label">Primary Focus</div></div>
+  <div class="stat"><div class="stat-num">3–12</div><div class="stat-label">Month Engagements</div></div>
+  <div class="stat"><div class="stat-num">Pan-GH</div><div class="stat-label">Coverage</div></div>
+</div>
+
+<div class="intro-strip">
+  <p>Many medium enterprises face <strong>growing pressure</strong> from financiers, regulators, and international buyers to demonstrate credible environmental and sustainability practices — yet lack the internal capacity to act. <strong>Cleanearth SustainLab</strong> closes this gap with right-sized, implementation-focused E&amp;S support designed specifically for businesses with 31–100 employees and assets between GHS 6M–18M.</p>
+</div>
+
+<div class="services-section">
+  <div class="section-label">Core Service Areas</div>
+  <div class="section-title">What We Deliver</div>
+  <p style="font-size:10.5px;color:var(--muted);margin-bottom:18px;">Click any service to explore further.</p>
+  <div class="services-grid">
+    <div class="service-card active" onclick="selectService(0)">
+      <div class="sc-icon"><i class="ti ti-clipboard-check" aria-hidden="true"></i></div>
+      <div class="sc-title">E&amp;S Assessments</div>
+      <div class="sc-desc">Baseline reviews of environmental performance, resource use, ESG readiness, and compliance gaps.</div>
+    </div>
+    <div class="service-card" onclick="selectService(1)">
+      <div class="sc-icon"><i class="ti ti-bolt" aria-hidden="true"></i></div>
+      <div class="sc-title">Resource Efficiency</div>
+      <div class="sc-desc">Energy savings, water conservation, waste reduction, and circular economy integration.</div>
+    </div>
+    <div class="service-card" onclick="selectService(2)">
+      <div class="sc-icon"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+      <div class="sc-title">ESG Systems &amp; Reporting</div>
+      <div class="sc-desc">Framework development, sustainability policies, data collection, and basic reporting support.</div>
+    </div>
+    <div class="service-card" onclick="selectService(3)">
+      <div class="sc-icon"><i class="ti ti-truck-delivery" aria-hidden="true"></i></div>
+      <div class="sc-title">Compliance &amp; Supply Chain</div>
+      <div class="sc-desc">Meeting environmental requirements from regulators, buyers, investors, and supply chain partners.</div>
+    </div>
+    <div class="service-card" onclick="selectService(4)">
+      <div class="sc-icon"><i class="ti ti-coin" aria-hidden="true"></i></div>
+      <div class="sc-title">Green Finance Readiness</div>
+      <div class="sc-desc">ESG documentation, performance data, climate finance prep, and sustainability-linked lending readiness.</div>
+    </div>
+  </div>
+  <div class="detail-box visible" id="detailBox">
+    <p id="detailText"></p>
+    <ul id="detailList"></ul>
+  </div>
+</div>
+
+</div><!-- end page 1 -->
+
+<!-- PAGE 2 -->
+<div class="page-content" id="page-1">
+
+<div class="p2-header">
+  <div class="section-label">How We Work</div>
+  <div class="section-title">Flexible Engagement Model</div>
+  <div class="delivery-grid">
+    <div class="delivery-item">
+      <div class="di-tag">Entry Point</div>
+      <div class="di-title">One-Time Diagnostics</div>
+      <div class="di-desc">Environmental assessments, ESG readiness reviews, compliance checks, and sustainability gap analyses — standalone, no commitment required.</div>
+    </div>
+    <div class="delivery-item">
+      <div class="di-tag">3 Months</div>
+      <div class="di-title">Focused Implementation</div>
+      <div class="di-desc">Short sprint support to address a specific E&amp;S challenge, compliance issue, or quick-win efficiency opportunity.</div>
+    </div>
+    <div class="delivery-item">
+      <div class="di-tag">6 Months</div>
+      <div class="di-title">Systems Development</div>
+      <div class="di-desc">Build ESG management systems, implement resource efficiency initiatives, and develop foundational sustainability reporting.</div>
+    </div>
+    <div class="delivery-item">
+      <div class="di-tag">12 Months</div>
+      <div class="di-title">Full Transformation</div>
+      <div class="di-desc">End-to-end sustainability integration: strategy, systems, compliance, reporting, and green finance readiness.</div>
+    </div>
+  </div>
+</div>
+
+<div class="target-section">
+  <div class="section-label">Who We Serve</div>
+  <div class="section-title">Priority Sectors</div>
+  <div class="target-pills">
+    <div class="pill green">Manufacturing</div>
+    <div class="pill green">Food &amp; Beverage</div>
+    <div class="pill green">Agribusiness</div>
+    <div class="pill green">Logistics &amp; Transport</div>
+    <div class="pill green">Packaging</div>
+    <div class="pill green">Hospitality &amp; Tourism</div>
+    <div class="pill green">Consumer Goods</div>
+    <div class="pill green">Export-Oriented</div>
+    <div class="pill">31–100 employees</div>
+    <div class="pill">GHS 6M–18M assets</div>
+    <div class="pill">Growth-stage businesses</div>
+  </div>
+  <div class="partner-cards">
+    <div class="partner-card">
+      <i class="ti ti-users" aria-hidden="true"></i>
+      <div class="partner-card-title">Business Associations</div>
+      <div class="partner-card-desc">Industry groups &amp; chambers for enterprise outreach</div>
+    </div>
+    <div class="partner-card">
+      <i class="ti ti-building-bank" aria-hidden="true"></i>
+      <div class="partner-card-title">Financial Institutions</div>
+      <div class="partner-card-desc">Linking clients to green finance &amp; sustainability-linked lending</div>
+    </div>
+    <div class="partner-card">
+      <i class="ti ti-world" aria-hidden="true"></i>
+      <div class="partner-card-title">Development Partners</div>
+      <div class="partner-card-desc">NGOs, DFIs, &amp; research institutions for program growth</div>
+    </div>
+  </div>
+</div>
+
+<div class="vision-band">
+  <div style="font-size:38px;color:rgba(106,173,94,0.8);flex-shrink:0;">
+    <i class="ti ti-target" aria-hidden="true"></i>
+  </div>
+  <div class="vision-text">
+    <h3>Our Vision</h3>
+    <p>To become Ghana's leading Environmental and Sustainability implementation platform for medium enterprises — enabling businesses to transition towards more efficient, responsible, resilient, and sustainable operations while improving access to future growth and financing opportunities.</p>
+  </div>
+</div>
+
+<!-- CTA + EMBEDDED MICROSOFT FORM -->
+<div class="cta-section">
+  <div class="section-label" style="text-align:left;margin-bottom:6px;">Get Started Today</div>
+  <h2>Ready to Strengthen Your Sustainability Performance?</h2>
+  <p class="sub">Begin with a no-obligation Environmental &amp; Sustainability Assessment. Fill in the form below — our team will be in touch within 2 business days.</p>
+
+  <div style="text-align:center;padding:16px 0 8px;">
+    <a class="btn-primary" href="https://forms.office.com/pages/responsepage.aspx?id=RMa6ghCq7UWKc3yHvmV4LMqx3iGcM4lPl2PrMmcWuINUMTEyMVdZVENZMVQwOTBET0xaUVBWSFI5Ty4u&origin=lprLink&route=shorturl" target="_blank">
+      Request Your Free Assessment ↗
+    </a>
+    <p style="font-size:10.5px;color:var(--muted);margin-top:14px;">Clicking the button opens a secure form in a new tab · Takes 5 minutes · Confidential</p>
+  </div>
+
+  <p style="font-size:10px;color:var(--muted);margin-top:16px;">Cleanearth Environmental &amp; Sustainability Advisory · Accra, Ghana</p>
+</div>
+
+</div><!-- end page 2 -->
+
+<div class="brochure-footer">
+  <div class="footer-brand">Cleanearth <span>SustainLab</span></div>
+  <div class="footer-meta">© 2025 · Confidential · Ghana</div>
+</div>
+
+</div><!-- end brochure -->
+
+<script>
+const serviceDetails=[
+  {text:"Our Environmental & Sustainability Assessments serve as the primary entry point — a structured baseline review that identifies where your business stands and what needs attention.",items:["Environmental performance assessments","Resource use assessments","ESG readiness assessments","Environmental compliance reviews","Sustainability gap analyses"]},
+  {text:"We work alongside your team to identify and implement practical improvements that reduce costs, cut waste, and lower your environmental footprint.",items:["Energy efficiency improvements","Water conservation initiatives","Waste reduction strategies","Circular economy opportunities","Environmental management planning"]},
+  {text:"We help you build the internal systems and documentation needed for credible sustainability management and reporting — aligned to GRI, IFRS S1 & S2, and IFC standards.",items:["ESG framework development","Sustainability policies and procedures","Environmental data collection systems","Sustainability performance monitoring","Basic sustainability reporting support"]},
+  {text:"As regulatory, buyer, and investor expectations rise, we ensure your enterprise stays ahead of environmental requirements across your value chain.",items:["Compliance readiness assessments","Supplier sustainability support","Environmental risk management","Buyer and export sustainability requirements support"]},
+  {text:"SustainLab prepares your business to access the growing pool of green and sustainability-linked finance — without providing financing directly.",items:["Green finance readiness assessments","ESG documentation support","Sustainability performance data development","Climate finance preparedness","Sustainability-linked lending readiness","Investment and funding readiness support"]}
+];
+function selectService(idx){
+  document.querySelectorAll('.service-card').forEach((c,i)=>i===idx?c.classList.add('active'):c.classList.remove('active'));
+  const d=serviceDetails[idx];
+  document.getElementById('detailText').textContent=d.text;
+  document.getElementById('detailList').innerHTML=d.items.map(i=>`<li>${i}</li>`).join('');
+  document.getElementById('detailBox').classList.add('visible');
+}
+function showPage(idx){
+  document.querySelectorAll('.page-content').forEach((p,i)=>p.classList.toggle('visible',i===idx));
+  document.querySelectorAll('.ptab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+}
+selectService(0);
+</script>
+</body>
+</html>
